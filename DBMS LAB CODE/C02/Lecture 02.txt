@@ -36,11 +36,11 @@ ALTER TABLE [table_Name] ADD CONSTRAINT [constrain_name] FOREIGN KEY( Attribute_
 ----------------- DATA Insert INTO TABLE -----------------
 
 INSERT INTO [table_Name](attrib_1, attrib_2, attrib_2, attrib_3, attrib_4)           /// Dont forget to insert data in PRIMARY KEY
-VALUES (123, 'Tashin Parvez', 'tashinparvez2002@gmail.com', 2.67, '01954449226')     /// Follow the above serial
+VALUES (123, 'Tashin Parvez', 'tashinparvez2002@gmail.com', 2.67, '019544****')     /// Follow the above serial
 
 
 INSERT INTO [table_Name] 
-VALUES ( 'SAFIN Parvez', 1234,  2.67,'DHAKA','01954449226', 'safinparvez2002@gmail.com')  /// FOLLOW table structure Serial
+VALUES ( 'SAFIN Parvez', 1234,  2.67,'DHAKA','01954449**', 'safinparvez2002@gmail.com')  /// FOLLOW table structure Serial
 
 
 
