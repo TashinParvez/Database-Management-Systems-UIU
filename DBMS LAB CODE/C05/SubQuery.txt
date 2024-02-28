@@ -1,0 +1,111 @@
+SELECT
+FROM
+WHERE
+
+GROUP BY    Coll_1, Coll_2. 
+
+ORDER BY
+LIMIT
+
+-----------------------------------------------------------------
+
+              
+              _____ _    _ ____   ____  _    _ ______ _______     __
+                / ____| |  | |  _ \ / __ \| |  | |  ____|  __ \ \   / /
+              | (___ | |  | | |_) | |  | | |  | | |__  | |__) \ \_/ / 
+               \___ \| |  | |  _ <| |  | | |  | |  __| |  _  / \   /  
+               ____) | |__| | |_) | |__| | |__| | |____| | \ \  | |   
+              |_____/ \____/|____/ \___\_\\____/|______|_|  \_\ |_|   
+                                                                      
+                                                         
+-> JOIN wroks can be done by using SUBQUERY
+-> IF one result then use '=' or '!='
+   if multiple ans use "IN"   [ in checks form a list ]
+
+-> if FROM have subquery then **alicing must** in FROM 
+-> WHERE EXISTS   (condition)              //---> If return atleast one then it becomes TRUE 
+
+
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> One output <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+SELECT first_name
+FROM employees
+HAVING salary> AVG(salary) 
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Multiple output <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+SELECT first_name
+FROM employees
+WHERE salary > (
+    SELECT AVG(salary)
+    FROM employees
+    );
+
+
+
+
+EXAMPLE : 1
+------------------
+
+SELECT first_name, d.department_name 
+FROM   employees 
+       INNER JOIN departments as d 
+       ON employees.department_id = d.department_id  
+WHERE salary in ( 
+       SELECT (salary) 
+       FROM employees as e  
+              INNER JOIN departments as d   
+               ON e.department_id = d.department_id 
+       WHERE d.department_name = 'IT' 
+    ) 
+    AND d.department_name != 'IT';  
+
+
+
+
+--------------------(Given Code)--------------------
+
+SELECT first_name, salary, department_name 
+FROM ( 
+       SELECT e.first_name, salary, d.department_id, d.department_name
+       FROM   employees  AS e  
+              INNER JOIN   
+              departments AS d 
+              ON e.department_id = d.department_id 
+      ) AS temp 
+
+WHERE salary IN ( 
+                  SELECT salary
+                  FROM employees 
+                  WHERE department_id = ( 
+                                        SELECT department_id 
+                                        FROM departments
+                                        WHERE department_name = "IT" 
+                                        )
+                )
+       AND
+       department_id IN ( SELECT department_id
+                            FROM departments
+                            WHERE NOT(department_name = "IT")
+                        );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
