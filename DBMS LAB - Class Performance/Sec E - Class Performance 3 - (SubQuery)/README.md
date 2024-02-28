@@ -1,4 +1,4 @@
-# Class Performance 03 (Spring 24 DBMS Lab Sec E CP 3) - Subqueries 
+# Class Performance 03 (Spring 24 DBMS Lab Sec-E) - Subqueries 
 
 1. Insert this [(Link)](https://github.com/TashinParvez/MySQL_From_Zero/blob/Tashin/Files/hr_schema.sql) database on your system.
 2. Perform the operations below
