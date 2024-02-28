@@ -8,6 +8,11 @@
    > 1. Find out the name of the employees who are not having minimum or maximum salary and the salary is also not equal to the average salary and not having experience less than 5 years.
    > 2. Find out the country names along with their available region names where the location id is not the minimum one.
    > 3. Find out the employee average salary who is assigned to a manager position and salary is not less than the avg salary of all employees. [employees having “manager” at the last part of their job title name are considered as an employee of manager position.
+   
+	Answer this using any method of your choice. You can combine join and subquery as well.
+
+  	 > 4. Sort the locations for each department in desc order and show the department names along with the minimal salary allocated for that department where the average of salaries are not starting with "2". 
+
 
 ## Solution
 
