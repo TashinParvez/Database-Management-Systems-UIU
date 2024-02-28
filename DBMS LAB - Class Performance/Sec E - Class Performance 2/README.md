@@ -1,4 +1,4 @@
-# Class Performance 02 (Spring 24 DBMS Lab Sec E CP 2 File)
+# Class Performance 02 (Spring 24 DBMS Lab Sec-E) [Aggregate Function, Join, Group By, Having]
 
 1. Insert this [(Link)](https://github.com/TashinParvez/MySQL_From_Zero/blob/Tashin/Files/hr_schema.sql) database on your system.
 2. Perform the operations below
