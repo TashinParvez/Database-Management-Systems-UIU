@@ -1,0 +1,71 @@
+CREATE DATABASE hospital
+
+CREATE TABLE client( 
+    c_id INT PRIMARY KEY , 
+    c_name varchar(50) , 
+    c_task varchar(50),
+    supervisor_employee varchar(50) 
+    );
+    
+ CREATE TABLE employee(
+        d_id INT PRIMARY KEY , 
+        d_name varchar(50) , 
+        d_designaton varchar(50) 
+    ); 
+    
+ CREATE TABLE work_procedure(
+        code INT PRIMARY key, 
+        name varchar(50), 
+        cost INT
+        
+        );
+
+// task 
+
+A. 
+ALTER TABLE client ADD COLUMN c_address varchar(50) 
+
+
+B. 
+ALTER TABLE client MODIFY supervisor_employee int ;  
+
+ALTER TABLE client ADD CONSTRAINT Clent_superisor_employee
+FOREIGN KEY(supervisor_employee) 
+REFERENCES employee(d_id)
+ 
+--------------------------------------------------
+c/
+
+SELECT c_name, c_task
+from client
+WHERE (
+c_task like 'a%' OR
+c_task like 'e%' OR
+c_task like 'i%' OR
+c_task like 'o%' OR
+c_task like 'u%');
+
+---------------------------------------------------
+d/
+
+SELECT d_id,d_destination
+FROM employee
+WHERE (
+        d_name like '%a%a' OR
+        d_name like '%a%e' OR
+        d_name like '%a%i' OR
+        d_name like '%a%o' OR 
+        d_name like '%a%u'
+);
+
+----------------------------------------------------
+
+e/
+
+SELECT SUM(cost-(cost*.07)) AS profit
+FROM work_procedure;
+
+
+
+
+------------------------------------------------ Solved by emon and Kona ---------------------------------
