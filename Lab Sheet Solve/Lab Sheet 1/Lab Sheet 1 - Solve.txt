@@ -1,0 +1,368 @@
+
+//                  ╔═══════════════════════════════════════════════════════════════════════════════════════════╗
+//                  ║                                                                                           ║
+//                  ║                                Author: Tashin Parvez                                      ║
+//                  ║                            United International University                                ║
+//                  ║                                                                                           ║
+//                  ╚═══════════════════════════════════════════════════════════════════════════════════════════╝
+
+
+
+-----------------------------------------------------------------------
+------------------------------  SET - 1  ------------------------------
+-----------------------------------------------------------------------
+
+
+----------------------------  QUESTION 01  ----------------------------
+/* Write a query to display the names (first_name, last_name) using alias name “First Name", 
+"Last Name” 
+*/
+
+SELECT first_name AS 'First Name',
+		last_name AS 'Last Name'
+FROM employees;
+
+
+----------------------------  QUESTION 02  ----------------------------
+
+/* Write a query to get unique department ID from employee table
+*/
+
+SELECT DISTINCT department_id
+FROM employees;
+
+
+----------------------------  QUESTION 03  ----------------------------
+
+/* Write a query to get all employee details from the employee table order by first name, 
+descending.
+*/
+
+SELECT *
+FROM employees
+ORDER BY first_name DESC
+
+
+----------------------------  QUESTION 04  ----------------------------
+/*
+Write a query to get the full name (first_name + “ “ + last_name), salary, PF of all the 
+employees (PF is calculated as 15% of salary)
+*/
+
+SELECT CONCAT(first_name, ' ', last_name )AS 'FULL name',
+		salary,
+        ROUND(salary*(15/100),2)   AS PF
+FROM employees;
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------
+------------------------------  SET - 2  ------------------------------
+-----------------------------------------------------------------------
+
+
+----------------------------  QUESTION 01  ----------------------------
+
+/*
+Write a query to get the employee ID, names (first_name, last_name), salary in ascending 
+order of salary
+*/
+
+SELECT employee_id, CONCAT(first_name ,' ', last_name) AS Name,
+		salary
+FROM employees
+ORDER BY salary ASC 
+
+
+
+
+----------------------------  QUESTION 02  ----------------------------
+/*
+Write a query to select first 10 records.
+*/
+
+SELECT employee_id, CONCAT(first_name ,' ', last_name) AS Name 
+FROM employees
+LIMIT 10;
+
+
+
+----------------------------  QUESTION 03  ----------------------------
+/*
+Write a query to select the highest paid employee
+*/
+
+SELECT  employee_id, CONCAT(first_name ,' ', last_name) AS Name,  salary 
+FROM employees
+ORDER BY salary DESC
+LIMIT 1;
+
+
+----------------------------  QUESTION 04  ----------------------------
+/*
+Write a query to select the second lowest paid employee.
+*/
+
+SELECT  employee_id, CONCAT(first_name ,' ', last_name) AS Name,  salary 
+FROM employees
+ORDER BY salary ASC
+LIMIT 1
+OFFSET 1;
+
+
+
+
+
+
+
+-----------------------------------------------------------------------
+------------------------------  SET - 3  ------------------------------
+-----------------------------------------------------------------------
+
+
+----------------------------  QUESTION 01  ----------------------------
+ 
+/*
+Write a query get all first name from employees table in upper case
+*/
+
+SELECT UPPER(first_name)  AS Name
+FROM employees;
+
+
+
+----------------------------  QUESTION 02  ----------------------------
+
+/*
+Write a query to get the length of the employee full name (first_name, last_name) from 
+employees table
+*/
+
+SELECT LENGTH(CONCAT(first_name,last_name))  AS 'Name len'
+FROM employees;
+
+
+----------------------------  QUESTION 03  ----------------------------
+
+/*
+Write a query to get the first 3 characters of first name from employees table
+*/
+
+SELECT LEFT(first_name,3)  AS '3-char Name'
+FROM employees;
+
+
+----------------------------  QUESTION 04  ----------------------------
+
+/*
+Write a query to first name from employees who’s name starts with ‘B’.
+*/
+
+SELECT first_name
+FROM employees
+WHERE LEFT(first_name,1) = 'B';
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------
+------------------------------  SET - 4  ------------------------------
+-----------------------------------------------------------------------
+
+
+----------------------------  QUESTION 01  ----------------------------
+/*
+Write a query to first name from employees who’s name starts with a vowel.
+*/
+
+SELECT first_name
+FROM employees
+WHERE LEFT(first_name,1) IN ('A', 'E','I', 'O', 'U');
+
+
+
+----------------------------  QUESTION 02  ----------------------------
+ 
+ /*
+Write a query to get the first name from employees table where the length of the first name 
+is less than 5.
+*/
+
+SELECT first_name
+FROM employees
+WHERE LENGTH(first_name) < 5
+
+
+
+----------------------------  QUESTION 03  ----------------------------
+  
+/*
+Write a query to get the first name from employees table where the first name has the 
+keyword ‘on’ in it.
+*/
+
+SELECT first_name
+FROM employees
+WHERE first_name LIKE '%on%';
+
+
+
+----------------------------  QUESTION 04  ----------------------------
+
+/*
+Write a query to get monthly salary (round 2 decimal places) of every employee
+*/
+
+SELECT ROUND(salary,2)
+FROM employees;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
