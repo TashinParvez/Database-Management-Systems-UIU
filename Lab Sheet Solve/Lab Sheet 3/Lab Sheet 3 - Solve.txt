@@ -1,0 +1,126 @@
+
+//                  ╔═══════════════════════════════════════════════════════════════════════════════════════════╗
+//                  ║                                                                                           ║
+//                  ║                                Author: Tashin Parvez                                      ║
+//                  ║                            United International University                                ║
+//                  ║                                                                                           ║
+//                  ╚═══════════════════════════════════════════════════════════════════════════════════════════╝
+
+
+
+----------------------------  QUESTION 01  ---------------------------- 
+
+/*
+	Write a query to list the number of jobs available in the employees table
+*/
+
+SELECT COUNT(DISTINCT job_id)
+FROM employees
+
+
+
+----------------------------  QUESTION 02  ----------------------------
+ 
+/*
+	Write a query to get the total salaries payable to employees.
+*/
+
+SELECT SUM(salary) AS Total_Salary
+FROM employees;
+
+
+----------------------------  QUESTION 03  ----------------------------
+
+/*
+	Write a query to get the minimum salary from employees table.
+*/
+
+SELECT MIN(salary) AS MIN_Salary
+FROM employees;
+
+
+
+----------------------------  QUESTION 04  ----------------------------
+
+/*
+Write a query to get the maximum salary of an employee working as a Programmer. 
+(Hint: JOIN jobs table)
+*/
+
+SELECT MAX(e.salary) AS Max_Salary
+FROM employees as e 
+	INNER JOIN
+	jobs as j 
+	ON e.job_id = j.job_id
+    
+WHERE j.job_title = 'Programmer';
+
+----------------------------  QUESTION 05  ----------------------------
+
+/*
+Write a query to get the average salary and number of employees working in the department 90.
+*/
+
+SELECT AVG(e.salary) AS Avg_Salary,
+	   COUNT(*) AS num_of_emp
+FROM employees as e 
+WHERE e.department_id = 90; 
+
+
+----------------------------  QUESTION 06  ----------------------------
+
+/*
+Write a query to get the highest, lowest, sum, and average salary of all employees.
+*/
+
+SELECT  MAX(e.salary) AS MAX_Salary,
+		MIN(e.salary) AS MIN_Salary,
+        SUM(e.salary) AS SUM_OF_Salary,
+        AVG(e.salary) AS Avg_Salary
+FROM employees as e 
+
+----------------------------  QUESTION 07  ----------------------------
+
+/*
+Write a query to get the number of employees with the same job
+*/
+
+SELECT job_id,  COUNT(*) AS NumOfEmp
+FROM employees as e
+GROUP BY e.job_id;
+
+----------------------------  QUESTION 08  ----------------------------
+
+/*
+Write a query to get the difference between the highest and lowest salaries.
+*/
+
+SELECT   MAX(salary)-MIN(salary) 
+FROM employees as e;
+
+----------------------------  QUESTION 09  ----------------------------
+
+/*
+Write a query to find the manager ID and the salary of the lowest-paid employee for that 
+manager.
+*/
+
+SELECT   manager_id, MIN(salary) 
+FROM employees as e
+GROUP BY manager_id
+
+----------------------------  QUESTION 10  ----------------------------
+
+/*
+Write a query to get the department ID and the total salary payable in each department
+*/
+
+SELECT   department_id, SUM(salary)
+FROM employees as e
+GROUP BY department_id;
+
+
+
+
+
+
