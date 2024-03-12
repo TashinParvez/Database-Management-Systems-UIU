@@ -1,0 +1,36 @@
+
+------------------------------------------------------------------
+---------------------   Question No 2(B)   -----------------------
+------------------------------------------------------------------
+
+
+>>>>>> (i)
+Get the details about all flights from Dhaka to Cox's Bazar.
+------------------------------------------------------------------
+σ(src = 'Dhaka' AND dest = 'Cox\'s Bazar') (flight)
+
+
+
+>>>>>> (ii)
+Find the passenger names for passengers who have bookings on at least one flight.
+------------------------------------------------------------------
+π(pname) (σ(booking.fid IS NOT NULL AND passenger.pid = booking.pid)(passenger X booking))
+
+
+
+>>>>>> (iii)
+Find the passenger names for those who do not have any bookings in any flights.
+------------------------------------------------------------------
+π(pname) (σ(booking.fid IS NULL  AND passenger.pid = booking.pid) (passenger X booking)) 
+
+
+
+>>>>>> (iv)
+Find the details of all male passengers who are associated with ShareTrip agency
+------------------------------------------------------------------
+
+π(pid, pname) 
+(σ(pgender = 'male' AND passenger.pid = booking.pid AND booking.aid = agency.aid AND agency.aname = 'ShareTrip') 
+(passenger X booking X agency))
+
+

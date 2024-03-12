@@ -40,18 +40,64 @@ Find out the Employee names of those employees who aged less than the
 average age of all employees for each department.
 ------------------------------------------------------------------
 
-SELECT name
-FROM
-GROUP BY department_id
-WHERE age< AVG(age)
+SELECT e.name AS employee_name
+FROM Employees e
+WHERE e.age < (
+    SELECT AVG(e2.age)
+    FROM Employees e2
+    WHERE e2.department_id = e.department_id
+)
+
+
+>>>>>>>>>   (iv)   <<<<<<<<<<
+Find out the name and address of each customer who has placed a project order 
+and the project name is not starting with any vowel or not ending with “ea”.
+
+
+SELECT c.name, c.address
+FROM Customers AS c
+     INNER JOIN 
+     (
+        SELECT o.customer_id 
+        FROM Orders AS o
+             INNER JOIN
+             Projects AS p
+             ON p.Project_id  = o. project_id
+
+        WHERE p.name NOT IN ( 'a%' , 'e%' ,'i%' ,'o%' ,'u%' )  
+                AND 
+                p.name NOT LIKE '%ea'
+
+     ) AS ntb
+     ON c.customer_id = ntb.customer_id
 
 
 
 
 
+>>>>>>>>>   (v)   <<<<<<<<<<
+Find out the Employee name and assignment id 
+of the 2nd first employee based 
+on the number of assignments provided for that employee.
 
 
+SELECT e.name, a.assignment_id
+FROM Employees e
 
+LEFT JOIN Assignments a ON e.employee_id = a.employee_id
+
+GROUP BY e.employee_id, e.name
+
+HAVING COUNT(a.assignment_id) = (
+    SELECT COUNT(*)
+    FROM Employees e2
+    LEFT JOIN Assignments a2 ON e2.employee_id = a2.employee_id
+    GROUP BY e2.employee_id
+    ORDER BY COUNT(a2.assignment_id) ASC
+    LIMIT 1 OFFSET 1
+)
+ORDER BY COUNT(a.assignment_id), e.name ASC
+LIMIT 1 OFFSET 1;
 
 
 

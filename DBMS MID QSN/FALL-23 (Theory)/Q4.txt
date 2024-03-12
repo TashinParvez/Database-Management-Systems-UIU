@@ -1,0 +1,45 @@
+
+------------------------------------------------------------------
+----------------------   Question No 4   -------------------------
+------------------------------------------------------------------
+
+
+>>>>>> (i)
+Get the details about all “Parts” available in “Dhaka” area.
+------------------------------------------------------------------
+
+π(pid, pname, color) ((Parts ⨝ Catalog) ⨝ (Catalog.sid = Suppliers.sid AND Suppliers.area = 'Dhaka'))
+
+-------------- OR --------------
+
+π(pid, pname, color) (σ(area = 'Dhaka') ( σ (ntb.SID  = suppliers.SID) ( ρ(ntb)(σ parts.PID = Catalog.PID(PARTS X Catalog ) )  ) X Suppliers ))
+
+
+
+
+
+>>>>>> (iii). 
+Find the output for the following:
+Π (amount, cost) (σ ( pid = (Π pid (σ (color = ‘red’)parts) ) Catalog))
+[Just write a sentence what will the query find. Example : All supplier with that sells red parts ]
+------------------------------------------------------------------------------------------------------------------------------------
+
+The query will find the amount and cost of all parts in the Catalog table that have a color of 'red'.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
